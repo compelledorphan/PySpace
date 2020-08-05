@@ -12,7 +12,7 @@ First, add the following code to the end of section #2:
 ```python
 badtimer=100
 badtimer1=0
-badguys=[[640,100]]
+badguys=[[1550,100]]
 healthvalue=194
 ```
 
