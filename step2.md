@@ -6,6 +6,7 @@ At the end of section #3, after loading the player image, add the following code
 
 ```python
 sky = pygame.image.load("resources/images/sky.png")
+spacestation = pygame.image.load("resources/images/spacestation.png")
 ```
 
 This loads the images and puts them into specific variables. Now they have to be drawn on screen. But if you check the grass image, you will notice that it won’t cover the entire screen area, which is 1550 x 1000. This means you have to tile the sky over the screen area to cover it completely.
