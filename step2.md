@@ -8,14 +8,14 @@ At the end of section #3, after loading the player image, add the following code
 sky = pygame.image.load("resources/images/sky.png")
 ```
 
-This loads the images and puts them into specific variables. Now they have to be drawn on screen. But if you check the grass image, you will notice that it won’t cover the entire screen area, which is 640 x 480. This means you have to tile the grass over the screen area to cover it completely.
+This loads the images and puts them into specific variables. Now they have to be drawn on screen. But if you check the grass image, you will notice that it won’t cover the entire screen area, which is 1550 x 1000. This means you have to tile the grass over the screen area to cover it completely.
 
 Add the following code to game.py at the beginning of section #6 (before the player is drawn on screen):
 
 ```python
-    for x in range(width/grass.get_width()+1):
-        for y in range(height/grass.get_height()+1):
-            screen.blit(grass,(x*100,y*100))
+    for x in range(width//sky.get_width()+1):
+        for y in range(height//sky.get_height()+1):
+            screen.blit(sky,(x*100,y*100))
 ```
 
 As you can see, the for statement loops through x first.
