@@ -9,8 +9,8 @@ from pygame.locals import *
 
 # 2 - Initialize the game
 pygame.init()
-pygame.mixer.init()
-width, height = 640, 480
+#pygame.mixer.init()
+width, height = 1550, 1000
 screen = pygame.display.set_mode((width, height))
 keys = [False, False, False, False]
 playerpos = [100, 100]
@@ -18,7 +18,7 @@ acc = [0, 0]
 arrows = []
 badtimer = 100
 badtimer1 = 0
-badguys = [[640, 100]]
+badguys = [[900, 100]]
 healthvalue = 194
 
 
@@ -35,15 +35,15 @@ gameover = pygame.image.load("resources/images/gameover.png")
 youwin = pygame.image.load("resources/images/youwin.png")
 
 # 3.1 - Load audio
-hit = pygame.mixer.Sound("resources/audio/explode.wav")
-enemy = pygame.mixer.Sound("resources/audio/enemy.wav")
-shoot = pygame.mixer.Sound("resources/audio/shoot.wav")
-hit.set_volume(0.05)
-enemy.set_volume(0.05)
-shoot.set_volume(0.05)
-pygame.mixer.music.load('resources/audio/moonlight.wav')
-pygame.mixer.music.play(-1, 0.0)
-pygame.mixer.music.set_volume(0.25)
+#hit = pygame.mixer.Sound("resources/audio/explode.wav")
+#enemy = pygame.mixer.Sound("resources/audio/enemy.wav")
+#shoot = pygame.mixer.Sound("resources/audio/shoot.wav")
+#hit.set_volume(0.05)
+#enemy.set_volume(0.05)
+#shoot.set_volume(0.05)
+#pygame.mixer.music.load('resources/audio/moonlight.wav')
+#pygame.mixer.music.play(-1, 0.0)
+#pygame.mixer.music.set_volume(0.25)
 
 # 4 - keep looping through
 running = 1
@@ -55,14 +55,14 @@ while running:
     for x in range(width//sky.get_width()+1):
         for y in range(height//sky.get_height()+1):
             screen.blit(sky, (x*100, y*100))
-    screen.blit(spacestation, (0, 30))
-    screen.blit(spacestation, (0, 135))
-    screen.blit(spacestation, (0, 240))
-    screen.blit(spacestation, (0, 345))
+    screen.blit(spacestation, (0, 60))
+    screen.blit(spacestation, (0, 180))
+    screen.blit(spacestation, (0, 310))
+    screen.blit(spacestation, (0, 435))
     # 6.1 - Set player position and rotation
     position = pygame.mouse.get_pos()
     angle = math.atan2(position[1]-(playerpos[1]+32),position[0]-(playerpos[0]+26))
-    playerrot = pygame.transform.rotate(player, 360-angle*57.29)
+    playerrot = pygame.transform.rotate(player, 360-angle*57)
     playerpos1 = (playerpos[0]-playerrot.get_rect().width/2, playerpos[1]-playerrot.get_rect().height/2)
     screen.blit(playerrot, playerpos1)
     # 6.2 - Draw arrows
@@ -76,7 +76,7 @@ while running:
             arrows.pop(index)
         index += 1
         for projectile in arrows:
-            arrow1 = pygame.transform.rotate(arrow, 360-projectile[0]*57.29)
+            arrow1 = pygame.transform.rotate(arrow, 360-projectile[0]*57)
             screen.blit(arrow1, (projectile[1], projectile[2]))
     # 6.3 - Draw enemies
     if badtimer == 0:
@@ -96,7 +96,7 @@ while running:
         badrect.top = badguy[1]
         badrect.left = badguy[0]
         if badrect.left < 64:
-            hit.play()
+            #hit.play()
             healthvalue -= random.randint(5,20)
             badguys.pop(index)
         # 6.3.2 - Check for collisions
@@ -106,7 +106,7 @@ while running:
             bullrect.left = bullet[1]
             bullrect.top = bullet[2]
             if badrect.colliderect(bullrect):
-                enemy.play()
+                #enemy.play()
                 acc[0] += 1
                 badguys.pop(index)
                 arrows.pop(index1)
@@ -153,7 +153,7 @@ while running:
             pygame.quit()
             exit(0)
         if event.type == MOUSEBUTTONDOWN:
-            shoot.play()
+            #shoot.play()
             position = pygame.mouse.get_pos()
             acc[1] += 1
             arrows.append([math.atan2(position[1]-(playerpos1[1]+32),position[0]-(playerpos1[0]+26)),playerpos1[0]+32,playerpos1[1]+32])
