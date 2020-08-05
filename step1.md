@@ -7,7 +7,7 @@ from pygame.locals import *
 
 # 2 - Initialize the game
 pygame.init()
-width, height = 640, 480
+width, height = 1550, 1000
 screen=pygame.display.set_mode((width, height))
 
 # 3 - Load images
