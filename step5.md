@@ -25,7 +25,7 @@ Now when a user clicks the mouse, an arrow needs to fire. Add the following to t
         if event.type==pygame.MOUSEBUTTONDOWN:
             position=pygame.mouse.get_pos()
             acc[1]+=1
-            arrows.append([math.atan2(position[1]-(playerpos1[1]+32),position[0]-(playerpos1[0]+26)),playerpos1[0]+32,playerpos1[1]+32])
+            arrows.append([math.atan2(position[1]-(playerpos1[1]+64),position[0]-(playerpos1[0]+64)),playerpos1[0]+64,playerpos1[1]+64])
 ```
 
 This code checks if the mouse was clicked and if it was, it gets the mouse position and calculates the arrow rotation based on the rotated player position and the cursor position. This rotation value is stored in the arrows array.

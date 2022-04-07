@@ -153,7 +153,7 @@ while running:
             #shoot.play()
             position = pygame.mouse.get_pos()
             acc[1] += 1
-            arrows.append([math.atan2(position[1]-(playerpos1[1]+32),position[0]-(playerpos1[0]+26)),playerpos1[0]+32,playerpos1[1]+32])
+            arrows.append([math.atan2(position[1]-(playerpos1[1]+64),position[0]-(playerpos1[0]+64)),playerpos1[0]+64,playerpos1[1]+64])
     # 9 - Move player
     if keys[0]:
         playerpos[1] -= 5
