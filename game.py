@@ -59,7 +59,7 @@ while running:
     # 6.1 - Set player position and rotation
     position = pygame.mouse.get_pos()
     angle = math.atan2(position[1]-(playerpos[1]+32),position[0]-(playerpos[0]+26))
-    playerrot = pygame.transform.rotate(player, 360-angle*57)
+    playerrot = pygame.transform.rotate(player, 90-angle*57)
     playerpos1 = (playerpos[0]-playerrot.get_rect().width/2, playerpos[1]-playerrot.get_rect().height/2)
     screen.blit(playerrot, playerpos1)
     # 6.2 - Draw arrows
@@ -153,7 +153,7 @@ while running:
             #shoot.play()
             position = pygame.mouse.get_pos()
             acc[1] += 1
-            arrows.append([math.atan2(position[1]-(playerpos1[1]+32),position[0]-(playerpos1[0]+26)),playerpos1[0]+32,playerpos1[1]+32])
+            arrows.append([math.atan2(position[1]-(playerpos1[1]+64),position[0]-(playerpos1[0]+64)),playerpos1[0]+64,playerpos1[1]+64])
     # 9 - Move player
     if keys[0]:
         playerpos[1] -= 5
